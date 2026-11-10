@@ -1,0 +1,352 @@
+/* ===========================================================
+  ZENFLOW YOGA STUDIO - PAUSA URBANA
+  CSS completo para el index.html premium (HTML5 + CSS3)
+  Guarda este archivo como: styles.css
+  =========================================================== */
+
+/* 1. COLORES Y TIPOGRAFIAS DEL BRAND KIT */
+:root {
+ --marfil: #F4F3EC;
+ --salvia-claro: #C9D9C9;
+ --salvia: #7E9D86;
+ --bosque: #3F5C50;
+ --arena: #D5BDA8;
+ --carbon: #262F2B;
+ --blanco: #FFFFFF;
+ --texto-suave: #4A5850;
+ --borde: rgba(63, 92, 80, 0.18);
+ --sombra: 0 18px 48px rgba(38, 47, 43, 0.12);
+ --radio: 26px;
+ --fuente-texto: "DM Sans", Arial, sans-serif;
+ --fuente-titulo: "Fraunces", Georgia, serif;
+}
+
+/* 2. REINICIO Y ESTILOS GENERALES */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+ margin: 0;
+ overflow-x: hidden;
+ background: var(--marfil);
+ color: var(--carbon);
+ font-family: var(--fuente-texto);
+ line-height: 1.65;
+ -webkit-font-smoothing: antialiased;
+}
+img { display: block; width: 100%; max-width: 100%; }
+a { color: inherit; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, p, figure, blockquote { margin-top: 0; }
+h1, h2 { font-family: var(--fuente-titulo); font-weight: 400; letter-spacing: -0.04em; line-height: 1.12; }
+h1 em, h2 em, h3 em { font-weight: 400; }
+:focus-visible { outline: 3px solid var(--bosque); outline-offset: 4px; }
+.container { width: min(1200px, calc(100% - 80px)); margin-inline: auto; }
+.section { padding-block: 105px; }
+.skip-link {
+ position: fixed; left: 12px; top: -90px; z-index: 100;
+ padding: 12px 18px; border-radius: 10px;
+ background: var(--bosque); color: white; text-decoration: none;
+}
+.skip-link:focus { top: 10px; }
+.eyebrow {
+ margin-bottom: 21px; color: var(--bosque); font-size: 11px;
+ font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase;
+}
+.mini-line { display: inline-block; width: 28px; height: 1px; margin-right: 10px; vertical-align: middle; background: var(--bosque); }
+.section h2 { color: var(--bosque); font-size: clamp(38px, 4.8vw, 66px); }
+.section h2 em { text-decoration: underline; text-decoration-color: var(--salvia-claro); text-decoration-thickness: 0.08em; text-underline-offset: 0.13em; }
+
+/* 3. ENCABEZADO */
+.announcement {
+ display: flex; align-items: center; justify-content: center; gap: 10px;
+ min-height: 34px; padding: 6px 15px; background: var(--bosque);
+ color: var(--marfil); font-size: 10px; font-weight: 700;
+ letter-spacing: 0.12em; text-align: center;
+}
+.announcement-dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--salvia-claro); }
+.site-header {
+ position: sticky; top: 0; z-index: 30;
+ background: rgba(244, 243, 236, 0.96);
+ backdrop-filter: blur(16px); border-bottom: 1px solid var(--borde);
+}
+.header-inner { min-height: 91px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+.brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; white-space: nowrap; }
+.brand-word { color: var(--bosque); font-family: var(--fuente-titulo); font-size: 34px; letter-spacing: -0.075em; }
+.brand-word > span:first-child { font-style: italic; }
+.brand-dot, .footer-wordmark span { color: var(--salvia); }
+.brand-caption { margin-top: 7px; color: var(--bosque); font-size: 9px; font-weight: 700; letter-spacing: 0.28em; }
+.desktop-nav { display: flex; margin-left: auto; align-items: center; gap: clamp(13px, 2vw, 29px); }
+.desktop-nav a { color: var(--bosque); font-size: 12px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.desktop-nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.button {
+ display: inline-flex; align-items: center; justify-content: center; gap: 15px;
+ min-height: 52px; padding: 13px 24px; border: 2px solid var(--bosque);
+ border-radius: 99px; background: var(--bosque); color: var(--blanco);
+ font-size: 13px; font-weight: 700; line-height: 1.3; text-decoration: none;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(38,47,43,.18); }
+.button-header { min-height: 44px; padding: 10px 18px; font-size: 12px; white-space: nowrap; }
+.button-arrow { font-size: 18px; }
+.mobile-menu { display: none; position: relative; }
+
+/* 4. PORTADA EDITORIAL */
+.hero {
+ position: relative; overflow: hidden; padding-block: 85px 105px;
+ background: radial-gradient(circle at 85% 40%, rgba(201,217,201,.43), transparent 48%), var(--marfil);
+}
+.hero-layout { display: grid; grid-template-columns: 1fr 1.06fr; align-items: center; gap: 52px; }
+.hero-copy { position: relative; z-index: 2; }
+.hero h1 { margin-bottom: 22px; max-width: 650px; color: var(--bosque); font-size: clamp(57px, 6.2vw, 91px); line-height: 1.03; }
+.hero h1 em { text-decoration: underline; text-decoration-color: var(--salvia-claro); text-underline-offset: 0.13em; }
+.period { color: var(--salvia); }
+.hero-promise { max-width: 500px; color: var(--bosque); font-size: clamp(19px, 1.7vw, 23px); font-weight: 600; line-height: 1.45; }
+.hero-description { max-width: 465px; color: var(--texto-suave); font-size: 15px; line-height: 1.9; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 23px; margin-top: 30px; }
+.link-underlined {
+ display: inline-flex; align-items: center; gap: 12px; padding-bottom: 5px;
+ border-bottom: 1px solid var(--bosque); color: var(--bosque);
+ font-size: 13px; font-weight: 700; text-decoration: none;
+}
+.link-underlined:hover { gap: 17px; }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 45px; color: var(--bosque); font-size: 11px; font-weight: 600; }
+.meta-dot { display: inline-block; width: 5px; height: 5px; background: var(--salvia); border-radius: 50%; }
+.hero-art { position: relative; min-height: 610px; }
+.hero-photo-main {
+ position: absolute; top: 5px; right: 0; z-index: 2; width: 84%; height: 555px;
+ margin: 0; overflow: hidden; border: 7px solid rgba(255,255,255,.5);
+ border-radius: 280px 280px 22px 22px; box-shadow: var(--sombra);
+}
+.hero-photo-main img { height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hero-photo-small {
+ position: absolute; bottom: 5px; left: 0; z-index: 4; width: 39%; height: 255px;
+ margin: 0; padding: 7px; background: var(--marfil);
+ border-radius: 135px 135px 16px 16px; box-shadow: var(--sombra);
+}
+.hero-photo-small img { height: 100%; object-fit: cover; border-radius: 120px 120px 10px 10px; }
+.hero-stamp {
+ position: absolute; top: 54%; left: 2%; z-index: 5; display: flex; align-items: center;
+ gap: 9px; padding: 14px 18px; transform: rotate(-8deg);
+ background: var(--salvia-claro); color: var(--bosque);
+ border-radius: 6px 30px 6px 30px; font: italic 18px var(--fuente-titulo);
+}
+.stamp-line { width: 22px; height: 1px; background: var(--bosque); }
+.hero-outline { position: absolute; top: -30px; right: -25px; width: 200px; height: 200px; border: 1px solid var(--salvia); border-radius: 50%; }
+.photo-caption { position: absolute; bottom: 0; right: 0; color: var(--texto-suave); font-size: 10px; }
+.hero-watermark { position: absolute; bottom: -65px; left: -25px; color: rgba(126,157,134,.08); font: 290px var(--fuente-titulo); line-height: 1; pointer-events: none; }
+
+/* 5. FRANJA MANIFIESTO */
+.manifesto-band { background: var(--salvia-claro); }
+.manifesto-inner { min-height: 105px; display: flex; align-items: center; gap: 25px; }
+.manifesto-icon { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border: 1px solid var(--bosque); border-radius: 50%; color: var(--bosque); font-size: 26px; }
+.manifesto-inner p { margin: 0; color: var(--bosque); font: 25px var(--fuente-titulo); }
+.manifesto-inner strong { font-weight: 500; font-style: italic; }
+.manifesto-inner a { margin-left: auto; color: var(--bosque); font-size: 12px; font-weight: 700; white-space: nowrap; }
+
+/* 6. FILOSOFIA Y BENEFICIOS */
+.philosophy-section { background: var(--blanco); }
+.intro-grid { display: grid; grid-template-columns: 1.15fr .7fr; align-items: end; gap: 75px; margin-bottom: 48px; }
+.intro-grid h2 { margin-bottom: 0; }
+.intro-description p { color: var(--texto-suave); font-size: 15px; line-height: 1.9; }
+.benefits-grid { display: grid; grid-template-columns: 1.12fr 1fr 1fr; gap: 18px; }
+.benefit-card {
+ display: flex; flex-direction: column; justify-content: space-between; gap: 35px;
+ min-height: 305px; padding: 28px; border-radius: var(--radio);
+ border: 1px solid var(--borde); background: var(--marfil);
+}
+.benefit-feature { background: var(--bosque); color: var(--marfil); }
+.benefit-sand { background: #E9D8C8; }
+.benefit-top { display: flex; justify-content: space-between; gap: 12px; color: var(--bosque); font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+.benefit-feature .benefit-top { color: var(--salvia-claro); }
+.benefit-symbol { font-size: 31px; line-height: 1; }
+.benefit-card h3 { margin-bottom: 12px; color: var(--bosque); font: 400 clamp(27px, 2.6vw, 35px) var(--fuente-titulo); letter-spacing: -0.035em; }
+.benefit-card p { margin: 0; color: var(--texto-suave); font-size: 13px; line-height: 1.85; }
+.benefit-feature h3, .benefit-feature p { color: var(--marfil); }
+
+/* 7. TARJETAS DE CLASES */
+.classes-section { background: var(--marfil); }
+.split-heading { display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 75px; margin-bottom: 45px; }
+.split-heading > p { margin: 0; color: var(--texto-suave); font-size: 14px; }
+.class-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.class-card {
+ display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--borde);
+ border-radius: var(--radio); background: var(--blanco);
+ transition: transform .25s ease, box-shadow .25s ease;
+}
+.class-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+.class-picture { position: relative; overflow: hidden; height: 315px; }
+.class-picture img { height: 100%; object-fit: cover; transition: transform .35s ease; }
+.class-card:hover .class-picture img { transform: scale(1.04); }
+.class-number { position: absolute; top: 18px; right: 18px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: var(--bosque); background: var(--marfil); font: 23px var(--fuente-titulo); }
+.class-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 30px; }
+.class-caption { color: var(--bosque); font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+.class-body h3 { margin: 13px 0 12px; color: var(--bosque); font: 400 clamp(26px, 2.7vw, 36px) var(--fuente-titulo); letter-spacing: -.035em; }
+.class-body p { margin-bottom: 25px; color: var(--texto-suave); font-size: 14px; line-height: 1.8; }
+.class-body a { display: inline-flex; align-items: center; gap: 24px; margin-top: auto; padding: 12px 0 0; border-top: 1px solid var(--borde); color: var(--bosque); font-size: 12px; font-weight: 700; text-decoration: none; }
+.class-body a:hover { text-decoration: underline; }
+.section-disclaimer { margin-top: 22px; color: var(--texto-suave); font-size: 11px; }
+
+/* 8. TU PRIMERA CLASE */
+.process-section { overflow: hidden; background: var(--bosque); color: var(--marfil); }
+.process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+.eyebrow-on-dark { color: var(--salvia-claro); }
+.process-copy h2 { color: var(--marfil); }
+.process-copy h2 em { color: var(--salvia-claro); }
+.process-copy > p:not(.eyebrow) { max-width: 430px; color: var(--marfil); font-size: 15px; }
+.button-light { margin-top: 20px; background: var(--marfil); border-color: var(--marfil); color: var(--bosque); }
+.process-right { position: relative; }
+.steps { position: relative; z-index: 1; margin: 0; padding: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 58px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(244,243,236,.3); }
+.steps li > span { color: var(--salvia-claro); font: 36px var(--fuente-titulo); }
+.steps h3 { margin: 0 0 8px; font-size: 20px; color: var(--blanco); }
+.steps p { margin: 0; color: var(--marfil); font-size: 13px; }
+.breathing-line { position: absolute; right: -100px; bottom: -130px; width: 250px; height: 250px; border: 1px solid rgba(201,217,201,.3); border-radius: 50%; box-shadow: 0 0 0 65px rgba(201,217,201,.06), 0 0 0 130px rgba(201,217,201,.04); }
+
+/* 9. EL ESTUDIO */
+.studio-section { background: var(--blanco); }
+.studio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 85px; align-items: center; }
+.studio-collage { position: relative; min-height: 585px; }
+.studio-photo { position: absolute; top: 0; left: 0; width: 88%; height: 505px; margin: 0; border-radius: 245px 245px 16px 16px; overflow: hidden; }
+.studio-photo img { height: 100%; object-fit: cover; }
+.studio-detail { position: absolute; right: 0; bottom: 35px; width: 40%; height: 260px; margin: 0; padding: 7px; border-radius: 140px 140px 14px 14px; background: white; box-shadow: var(--sombra); }
+.studio-detail img { height: 100%; object-fit: cover; border-radius: 130px 130px 9px 9px; }
+.studio-caption { position: absolute; bottom: 0; left: 0; color: var(--texto-suave); font-size: 10px; }
+.studio-copy h2 { margin-bottom: 25px; }
+.studio-copy > p:not(.eyebrow) { color: var(--texto-suave); font-size: 15px; line-height: 1.9; }
+.studio-copy blockquote { margin: 26px 0; padding-left: 20px; border-left: 3px solid var(--salvia); color: var(--bosque); font: italic 26px var(--fuente-titulo); }
+.studio-copy blockquote span { display: block; margin-top: 9px; color: var(--texto-suave); font: 11px var(--fuente-texto); }
+.address-card { display: flex; gap: 16px; align-items: center; padding-top: 22px; border-top: 1px solid var(--borde); }
+.address-icon { display: grid; place-items: center; flex: 0 0 43px; height: 43px; border: 1px solid var(--salvia); border-radius: 50%; color: var(--bosque); font-size: 28px; }
+.address-card strong { display: block; color: var(--bosque); font-size: 13px; }
+.address-card small { display: block; margin-top: 4px; color: var(--texto-suave); font-size: 11px; }
+
+/* 10. PREGUNTAS FRECUENTES */
+.faq-section { background: var(--salvia-claro); }
+.faq-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; }
+.faq-intro { margin-top: 25px; color: var(--texto-suave); font-size: 15px; }
+.faq-accordion details { border-bottom: 1px solid rgba(63,92,80,.3); }
+.faq-accordion details:first-child { border-top: 1px solid rgba(63,92,80,.3); }
+.faq-accordion summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 23px 0; color: var(--bosque); font-size: 16px; font-weight: 700; cursor: pointer; list-style: none; }
+.faq-accordion summary::-webkit-details-marker { display: none; }
+.faq-accordion summary span { display: grid; place-items: center; flex: 0 0 31px; height: 31px; border-radius: 50%; background: var(--marfil); font-size: 22px; font-weight: 400; }
+.faq-accordion details[open] summary span { transform: rotate(45deg); }
+.faq-accordion details p { margin: -3px 0 24px; color: var(--texto-suave); font-size: 13px; line-height: 1.9; }
+
+/* 11. FORMULARIO DE RESERVA - DEMOSTRACION */
+.booking-section { background: var(--marfil); }
+.booking-layout { display: grid; grid-template-columns: 1fr .9fr; gap: 80px; align-items: center; }
+.booking-message { position: relative; padding-bottom: 45px; }
+.booking-message h2 { font-size: clamp(48px, 5.5vw, 76px); }
+.booking-message > p:not(.eyebrow) { max-width: 440px; color: var(--texto-suave); font-size: 15px; }
+.booking-points { display: grid; gap: 12px; padding: 0; margin: 30px 0; list-style: none; color: var(--bosque); font-size: 13px; font-weight: 700; }
+.booking-points li::before { content: '✓'; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; background: var(--salvia-claro); }
+.booking-decor { position: absolute; left: 10%; bottom: -30px; width: 190px; height: 95px; border: 1px solid var(--salvia); border-bottom: 0; border-radius: 50% 50% 0 0; transform: rotate(-15deg); opacity: .5; }
+.form-panel { position: relative; z-index: 1; padding: 42px; border: 1px solid var(--borde); border-radius: 32px; background: var(--blanco); box-shadow: var(--sombra); }
+.form-kicker { margin-bottom: 12px; color: var(--bosque); font-size: 10px; font-weight: 700; letter-spacing: .15em; }
+.form-panel h3 { margin-bottom: 14px; color: var(--bosque); font: 400 clamp(28px, 3vw, 38px) var(--fuente-titulo); }
+.form-description { color: var(--texto-suave); font-size: 12px; }
+.form-field { margin-top: 18px; }
+.form-field label { display: block; margin-bottom: 7px; color: var(--bosque); font-size: 12px; font-weight: 700; }
+.form-field input, .form-field select { display: block; width: 100%; min-height: 54px; padding: 12px 15px; border: 1px solid #A5B9A8; border-radius: 12px; background: var(--marfil); color: var(--carbon); font-size: 14px; }
+.form-field input:focus, .form-field select:focus { outline: 2px solid var(--salvia); outline-offset: 2px; }
+.button-form { width: 100%; justify-content: space-between; margin-top: 22px; }
+.demo-note { margin: 14px 0 0; color: var(--texto-suave); font-size: 11px; line-height: 1.7; }
+
+/* 12. PIE DE PAGINA */
+.site-footer { padding-top: 75px; background: var(--carbon); color: var(--marfil); }
+.footer-top { display: grid; grid-template-columns: 1.35fr .7fr 1fr; gap: 70px; padding-bottom: 65px; }
+.footer-wordmark { font: 54px var(--fuente-titulo); letter-spacing: -.07em; }
+.footer-identity p { color: var(--salvia-claro); font-size: 14px; }
+.footer-menu, .footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; }
+.footer-menu strong, .footer-contact strong { margin-bottom: 5px; color: var(--salvia-claro); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+.footer-menu a, .footer-contact p { margin: 0; color: var(--marfil); font-size: 12px; text-decoration: none; }
+.footer-menu a:hover { text-decoration: underline; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-block: 25px; border-top: 1px solid rgba(244,243,236,.2); color: var(--salvia-claro); font-size: 10px; }
+
+/* 13. TABLETAS Y PANTALLAS MEDIANAS */
+@media (max-width: 1080px) {
+ .container { width: min(1200px, calc(100% - 48px)); }
+ .desktop-nav { gap: 12px; }
+ .desktop-nav a { font-size: 11px; }
+ .hero-layout { gap: 32px; }
+ .hero h1 { font-size: clamp(52px, 6vw, 74px); }
+ .hero-art { min-height: 500px; }
+ .hero-photo-main { height: 455px; }
+ .hero-photo-small { height: 210px; }
+ .studio-grid, .process-layout, .booking-layout, .faq-layout { gap: 45px; }
+ .studio-collage { min-height: 490px; }
+ .studio-photo { height: 435px; }
+ .studio-detail { height: 210px; }
+}
+@media (max-width: 930px) {
+ .desktop-nav { display: none; }
+ .mobile-menu { display: block; }
+ .button-header { margin-left: auto; }
+ .mobile-menu summary { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 43px; height: 43px; padding: 10px; border: 1px solid var(--borde); border-radius: 50%; list-style: none; cursor: pointer; }
+ .mobile-menu summary::-webkit-details-marker { display: none; }
+ .mobile-menu summary span { display: block; width: 100%; height: 2px; background: var(--bosque); }
+ .mobile-menu nav { position: absolute; top: calc(100% + 15px); right: 0; display: flex; flex-direction: column; min-width: 260px; padding: 12px; border-radius: 17px; border: 1px solid var(--borde); background: var(--marfil); box-shadow: var(--sombra); }
+ .mobile-menu nav a { padding: 10px; color: var(--bosque); font-size: 13px; font-weight: 600; text-decoration: none; }
+ .mobile-menu nav a:hover { background: var(--salvia-claro); }
+ .benefits-grid { gap: 12px; }
+ .benefit-card { padding: 22px; }
+}
+
+/* 14. MOVILES */
+@media (max-width: 760px) {
+ .container { width: min(100% - 36px, 570px); }
+ .section { padding-block: 74px; }
+ .header-inner { min-height: 75px; }
+ .brand-word { font-size: 29px; }
+ .brand-caption { font-size: 8px; }
+ .hero { padding-block: 68px 75px; }
+ .hero-layout, .intro-grid, .split-heading, .process-layout, .studio-grid, .faq-layout, .booking-layout { grid-template-columns: 1fr; gap: 35px; }
+ .hero h1 { font-size: clamp(47px, 10vw, 69px); }
+ .hero-art { min-height: 520px; max-width: 550px; width: 100%; margin-inline: auto; }
+ .hero-photo-main { height: 480px; }
+ .hero-photo-small { height: 225px; }
+ .hero-meta { margin-top: 30px; }
+ .manifesto-inner { flex-wrap: wrap; padding-block: 20px; gap: 14px; }
+ .manifesto-inner p { width: calc(100% - 65px); font-size: 20px; }
+ .manifesto-inner a { margin-left: 62px; }
+ .benefits-grid, .class-grid { grid-template-columns: 1fr; gap: 20px; }
+ .benefit-card { min-height: 235px; }
+ .studio-collage { min-height: 535px; }
+ .studio-photo { height: 470px; }
+ .studio-detail { height: 240px; }
+ .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+ .footer-identity { grid-column: 1 / -1; }
+ .footer-bottom { flex-direction: column; }
+}
+@media (max-width: 460px) {
+ .announcement { font-size: 8px; letter-spacing: .06em; }
+ .button-header { display: none; }
+ .mobile-menu { margin-left: auto; }
+ .hero h1 { font-size: clamp(45px, 11vw, 55px); }
+ .hero-actions { flex-direction: column; align-items: stretch; }
+ .hero-actions .button { width: 100%; }
+ .hero-actions .link-underlined { align-self: flex-start; }
+ .hero-art { min-height: 380px; }
+ .hero-photo-main { height: 340px; }
+ .hero-photo-small { width: 42%; height: 160px; }
+ .hero-stamp { padding: 10px; font-size: 12px; }
+ .hero-outline { width: 130px; height: 130px; }
+ .hero-watermark { font-size: 180px; }
+ .section h2 { font-size: clamp(38px, 10vw, 49px); }
+ .class-picture { height: 260px; }
+ .class-body { padding: 25px; }
+ .studio-collage { min-height: 405px; }
+ .studio-photo { height: 350px; }
+ .studio-detail { height: 180px; }
+ .faq-accordion summary { font-size: 14px; }
+ .form-panel { padding: 27px 20px; }
+ .footer-top { grid-template-columns: 1fr; }
+ .footer-identity { grid-column: auto; }
+}
+
+/* 15. ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
